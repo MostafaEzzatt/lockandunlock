@@ -14,9 +14,10 @@ def lock_mouse():
         # Start a listener that suppresses all mouse events
         mouse_lock_listener = mouse.Listener(suppress=True)
         mouse_lock_listener.start()
-        print("Mouse LOCKED (Input Suppressed). Press Ctrl+Alt+U to UNLOCK.")
+        # print("Mouse LOCKED (Input Suppressed). Press Ctrl+Alt+U to UNLOCK.")
     else:
-        print("Mouse is already LOCKED.")
+        # print("Mouse is already LOCKED.")
+        pass
 
 
 def unlock_mouse():
@@ -26,9 +27,10 @@ def unlock_mouse():
         # Stop the listener to restore mouse control
         mouse_lock_listener.stop()
         mouse_lock_listener = None
-        print("Mouse UNLOCKED.")
+        # print("Mouse UNLOCKED.")
     else:
-        print("Mouse is not locked.")
+        # print("Mouse is not locked.")
+        pass
 
 # --- Keyboard lock state and helpers ---
 keyboard_lock_listener = None
@@ -97,7 +99,7 @@ def _on_key_press(key):
 
     # Unlock combo: Ctrl + Alt + U
     if 'ctrl' in keyboard_pressed and 'alt' in keyboard_pressed and 'u' in keyboard_pressed:
-        print("Unlock combo detected. Unlocking keyboard and mouse if locked.")
+        # print("Unlock combo detected. Unlocking keyboard and mouse if locked.")
         # Unlock both to be safe
         unlock_both()
         # Clear state to avoid repeated triggers
@@ -132,9 +134,10 @@ def lock_keyboard():
         if DEBUG:
             print(f"[DEBUG] auto-unlock timer started ({AUTO_UNLOCK_SECONDS}s)")
 
-        print(f"Keyboard LOCKED (Input Suppressed). Press Ctrl+Alt+U to UNLOCK or wait {AUTO_UNLOCK_SECONDS} seconds for auto-unlock.")
+        # print(f"Keyboard LOCKED (Input Suppressed). Press Ctrl+Alt+U to UNLOCK or wait {AUTO_UNLOCK_SECONDS} seconds for auto-unlock.")
     else:
-        print("Keyboard is already LOCKED.")
+        # print("Keyboard is already LOCKED.")
+        pass
 
 
 def unlock_keyboard():
@@ -156,9 +159,10 @@ def unlock_keyboard():
         except Exception:
             pass
         keyboard_lock_listener = None
-        print("Keyboard UNLOCKED.")
+        # print("Keyboard UNLOCKED.")
     else:
-        print("Keyboard is not locked.")
+        # print("Keyboard is not locked.")
+        pass
 
 
 def unlock_both():
@@ -196,4 +200,4 @@ except KeyboardInterrupt:
         except Exception:
             pass
         keyboard_lock_listener = None
-    print("\nScript stopped.")
+    # print("\nScript stopped.")
